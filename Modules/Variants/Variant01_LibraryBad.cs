@@ -1,28 +1,23 @@
 namespace ReviewSamples.Modules.Variants;
 
-public class Variant01_Book
-{
+public class Variant01_Book {
     public string T;
     public string A;
     public string I;
     public bool On;
 }
 
-public class Variant01_Reader
-{
+public class Variant01_Reader {
     public string N;
     public int C;
 }
 
-public class Variant01_LibraryBad
-{
+public class Variant01_LibraryBad {
     private List<Variant01_Book> books = new();
     private Dictionary<int, string> issued = new();
 
-    public string Issue(Variant01_Reader r, Variant01_Book b, int d)
-    {
-        if (b.On == true)
-        {
+    public string Issue(Variant01_Reader r, Variant01_Book b, int d) {
+        if (b.On == true) {
             return "bad";
         }
 
@@ -34,10 +29,8 @@ public class Variant01_LibraryBad
         return "ok";
     }
 
-    public string Return(Variant01_Reader r, Variant01_Book b)
-    {
-        if (b.On == false)
-        {
+    public string Return(Variant01_Reader r, Variant01_Book b) {
+        if (b.On == false) {
             return "bad";
         }
 
@@ -46,8 +39,7 @@ public class Variant01_LibraryBad
         var parts = rec.Split(";");
         var due = DateTime.Parse(parts[1]);
 
-        if (DateTime.Now > due)
-        {
+        if (DateTime.Now > due) {
             var days = (DateTime.Now - due).Days;
             Console.WriteLine("Overdue by " + days + " days, fine = " + days * 10);
         }
