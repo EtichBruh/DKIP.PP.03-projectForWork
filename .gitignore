@@ -9,3 +9,4 @@ obj/
 
 # Accidentally created URL-like directory
 /https:/
+/.vs
